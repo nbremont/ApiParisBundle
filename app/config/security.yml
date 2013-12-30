@@ -13,24 +13,24 @@ security:
                     user:  { password: userpass, roles: [ 'ROLE_USER' ] }
                     admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
 
-    firewalls:
-        dev:
-            pattern:  ^/(_(profiler|wdt)|css|images|js)/
-            security: false
-
-        login:
-            pattern:  ^/admin/login$
-            security: false
-
-        secured_area:
-            pattern:    ^/
-            anonymous: ~
-            form_login:
-                login_path:  login
-                check_path:  login_check
-            logout:
-                path:   /admin/logout
-                target: /admin
+#    firewalls:
+#        dev:
+#            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+#            security: false
+#
+#        login:
+#            pattern:  ^/admin/login$
+#            security: false
+#
+#        secured_area:
+#            pattern:    ^/
+#            anonymous: ~
+#            form_login:
+#                login_path:  login
+#                check_path:  login_check
+#            logout:
+#                path:   /admin/logout
+#                target: /admin
 #            http_basic:
 #                realm: "Secured Portfolio Area"
 
