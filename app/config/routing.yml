@@ -1,5 +1,0 @@
-jean_de_jean_portfolio:
-    resource: "@JeanDeJeanPortfolioBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
