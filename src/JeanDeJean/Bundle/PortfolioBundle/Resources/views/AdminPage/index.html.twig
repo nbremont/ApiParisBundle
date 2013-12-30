@@ -1,0 +1,37 @@
+{% extends 'JeanDeJeanPortfolioBundle::admin.html.twig' %}
+{% block title %}Page{% endblock %}
+{% block body %}
+<div class="block">
+    <div class="navbar navbar-inner block-header">
+        <div class="muted pull-left">Page</div>
+    </div>
+    <div class="block-content collapse in">
+        <div class="span12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Menu</th>
+                        <th>Name</th>
+                        <th>Content</th>
+                        <th>Url</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for page in pages %}
+                    <tr>
+                        <td>{{ page.getId() }}</td>
+                        <td>{{ page.getMenu().getLabel() }}</td>
+                        <td>{{ page.getName() }}</td>
+                        <td>{{ page.getContent()|truncate(60, true, '...') }}</td>
+                        <td>{{ page.getVideo() }}</td>
+                        <td><a href="{{ url('admin_edit_page', {'id': page.id }) }}" class="badge badge-warning">Edit</a>&nbsp;<a href="" class="badge badge-important">Delete</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

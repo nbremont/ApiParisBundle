@@ -1,0 +1,23 @@
+{% extends '::base.html.twig' %}
+{% block navigation %}
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li class="active"><a href="{{ url('home_admin') }}"><i class="icon-tasks"></i> Admin</a></li>
+                {% endif %}
+                {% render url('get_menu') %}
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
