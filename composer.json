@@ -1,0 +1,23 @@
+{
+    "name": "jeandejean/apiparisbundle",
+    "type": "symfony-bundle",
+    "description": "Symfony ApiParisBundle",
+    "keywords": ["Api","ApiParis", "Symfony"],
+    "homepage": "https://github.com/nbremont/ApiParisBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nicolas BREMONT",
+            "email": "nicolas.bremont@free.fr",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "JeanDeJean": "src"
+        }
+    }
+}
