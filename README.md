@@ -38,6 +38,27 @@ public function registerBundles()
 
 # How to
 
+## Configuration
+
+SetEnv variable into VirtualHost, name `SYMFONY__APIPARIS_TOKEN` for set token Api
+
+
+## Example
+
+into controller:
+
+``` php
+<?php
+
+public function indexAction()
+{
+    // ...
+    $apiEquipements = $this->get('jean_de_jean_api_paris.api.equipements');
+    $eq_categories = $apiEquipements->getCategories();
+}
+```
+
+
 Api {Paris}
 ========================
 
