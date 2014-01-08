@@ -65,7 +65,7 @@ abstract class AbstractApi
     if (0 < count($arguments)) {
       $this->client->setParams($arguments[0]);
     }
-    return (string) $this->client->callMethod('get');
+    return (string) $this->client->getCallService();
   }
 
 }
