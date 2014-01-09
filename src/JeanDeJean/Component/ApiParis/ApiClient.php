@@ -157,7 +157,7 @@ class ApiClient
     $response = $this->client->get($this->getRequestParams())->send();
     $body = $response->getBody()->__toString();
     $this->logger->addInfo($this->getRequestParams());
-    $this->response = $response->json();
+    $this->response = $body;
 
     if ($this->debug) {
       $this->logger->addDebug(preg_replace("/[\t\s\r]/", "", $body));
