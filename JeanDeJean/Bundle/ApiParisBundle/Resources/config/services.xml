@@ -19,7 +19,7 @@
     -->
     <parameters>
         <parameter key="cache.class">Doctrine\Common\Cache\ApcCache</parameter>
-        <parameter key="jean_de_jean_api_paris_uri">https://api.paris.fr:3000/data/</parameter>
+        <parameter key="jean_de_jean_api_paris_uri">https://api.paris.fr:3000/data</parameter>
         <parameter key="jean_de_jean_api_paris.api.client.class">JeanDeJean\Component\ApiParis\ApiClient</parameter>
         <parameter key="jean_de_jean_api_paris.api.equipements.class">JeanDeJean\Component\ApiParis\ApiEquipements</parameter>
         <parameter key="jean_de_jean_api_paris.api.quefaire.class">JeanDeJean\Component\ApiParis\ApiQueFaire</parameter>

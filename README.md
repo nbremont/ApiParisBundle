@@ -1,7 +1,68 @@
+ApiParisBundle
+==============
+
+Api Paris Bundle for Symfony2
+
+
+# Installation
+
+
+### Step 1: Download ApiParisBundle using composer
+
+Tell composer to require ApiParisBundle by running the command:
+
+``` bash
+$ php composer.phar require "jeandejean/apiparisbundle:dev-master"
+```
+
+Composer will install the bundle to your project's `vendor/jeandejean/apiparisbundle` directory.
+
+
+## Step 2: Enable the bundle
+
+Finally, enable the bundle in the kernel:
+
+``` php
+<?php
+// app/AppKernel.php
+
+public function registerBundles()
+{
+    $bundles = array(
+        // ...
+
+        new JeanDeJean\Bundle\ApiParisBundle\JeanDeJeanApiParisBundle(),
+    );
+}
+```
+
+# How to
+
+## Configuration
+
+SetEnv variable into VirtualHost, name `SYMFONY__APIPARIS_TOKEN` for set token Api
+
+
+## Example
+
+into controller:
+
+``` php
+<?php
+
+public function indexAction()
+{
+    // ...
+    $apiEquipements = $this->get('jean_de_jean_api_paris.api.equipements');
+    $eq_categories = $apiEquipements->getCategories();
+}
+```
+
+
 Api {Paris}
 ========================
 
-Accès à l 'API 
+Accès à l 'API
 
 L'API Paris Connect permet d'accéder en lecture aux données mises à disposition par Paris Numérique.
 L'accès à ces données nécessite :
@@ -164,3 +225,4 @@ Console: https://api.paris.fr:3000/data/1.0/Equipements/get_crowd_level/?token=&
 
 More information: https://api.paris.fr/
 -
+
