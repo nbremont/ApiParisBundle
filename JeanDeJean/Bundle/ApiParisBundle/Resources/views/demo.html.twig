@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}ApiParis{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block stylesheets %}{% endblock %}
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="{{ asset('bundles/jeandejeanapiparis/css/bootstrap.min.css') }}">
+        <style type="text/css">
+            body {
+                padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        {% block javascripts %}{% endblock %}
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="container">
+            {% block header_page %}{% endblock %}
+            {% block body %}{% endblock %}
+            </div>
+        </div>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="{{ asset('bundles/jeandejeanportfolio/js/bootstrap.min.js') }}"></script>
+    </body>
+</html>
