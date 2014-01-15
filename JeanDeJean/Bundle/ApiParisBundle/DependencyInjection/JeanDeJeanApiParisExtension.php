@@ -14,17 +14,24 @@ use Symfony\Component\DependencyInjection\Loader;
  */
 class JeanDeJeanApiParisExtension extends Extension
 {
-    /**
-     * {@inheritDoc}
-     */
-    public function load(array $configs, ContainerBuilder $container)
-    {
-        $configuration = new Configuration();
-        $config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.xml');
-        
-        $container->setParameter('jean_de_jean_api_paris_token', getenv('SYMFONY__APIPARIS_TOKEN'));
-    }
+  /**
+   * {@inheritDoc}
+   */
+  public function load(array $configs, ContainerBuilder $container)
+  {
+    $configuration = new Configuration();
+    $config = $this->processConfiguration($configuration, $configs);
+
+    $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+    $loader->load('services.xml');
+    
+    $this->initConfiguration($config, $container);
+  }
+
+  protected function initConfiguration(array $config, ContainerBuilder $container)
+  {
+    $container->setParameter('jean_de_jean_api_paris.token', $config['token']);
+  }
+
 }
