@@ -40,8 +40,23 @@ public function registerBundles()
 
 ## Configuration
 
-SetEnv variable into VirtualHost, name `SYMFONY__APIPARIS_TOKEN` for set token Api
+### Config
+```yml
+# config.yml
+jean_de_jean_api_paris:
+	token: %apiparis_token%
 
+```
+
+### Route
+```yml
+# routing.yml
+_apiparis_demo:
+    resource: "@JeanDeJeanApiParisBundle/Controller/"
+    type:     annotation
+    prefix:   /_apiparis
+
+```
 
 ## Example
 
@@ -225,4 +240,3 @@ Console: https://api.paris.fr:3000/data/1.0/Equipements/get_crowd_level/?token=&
 
 More information: https://api.paris.fr/
 -
-
