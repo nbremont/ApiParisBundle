@@ -10,14 +10,14 @@
     <div class="col-md-6">
         <ul>
             {% for qf_category in quefaire_categories.data %}
-            <li><a href="{{ url('quefaire_category_view', {'id': qf_category.id}) }}">{{ qf_category.name }}</a></li>
+            <li><a href="{{ url('apiparis_quefaire_category_view', {'id': qf_category.id}) }}">{{ qf_category.name }}</a></li>
             {% endfor %}
         </ul>
     </div>
     <div class="col-md-6">
         <ul>
         {% for eq_category in equipements_categories.data %}
-            <li><a href="{{ url('equipement_view', {'id': eq_category.idcategories}) }}">{{ eq_category.name }}</a></li>
+            <li><a href="{{ url('apiparis_equipement_view', {'id': eq_category.idcategories}) }}">{{ eq_category.name }}</a></li>
         {% endfor %}
         </ul>
     </div>

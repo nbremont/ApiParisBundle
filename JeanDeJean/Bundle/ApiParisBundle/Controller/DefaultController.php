@@ -10,7 +10,7 @@ class DefaultController extends ContainerAware
 {
 
   /**
-   * @Route("/", name="home")
+   * @Route("/", name="apiparis_home")
    * @Template()
    */
   public function indexAction()
@@ -28,7 +28,7 @@ class DefaultController extends ContainerAware
   }
 
   /**
-   * @Route("/equipement/{id}", name="equipement_view")
+   * @Route("/equipement/{id}", name="apiparis_equipement_view")
    * @Template()
    */
   public function equipementAction($id)
@@ -40,7 +40,7 @@ class DefaultController extends ContainerAware
   }
 
   /**
-   * @Route("/quefaire/category/{id}", name="quefaire_category_view")
+   * @Route("/quefaire/category/{id}", name="apiparis_quefaire_category_view")
    * @Template()
    */
   public function quefaireactivityAction($id)
