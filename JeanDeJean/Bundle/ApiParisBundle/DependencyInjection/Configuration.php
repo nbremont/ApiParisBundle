@@ -28,6 +28,7 @@ class Configuration implements ConfigurationInterface
     $rootNode
             ->children()
               ->scalarNode('token')->isRequired()->cannotBeEmpty()->end()
+              ->scalarNode('service_declaration_path')->end()
             ->end();
 
     return $treeBuilder;

@@ -1,0 +1,155 @@
+{
+    "name": "ApiParis",
+    "apiVersion": "string|number",
+    "baseUrl": "https://api.paris.fr:3000/data",
+    "description": "description",
+    "operations": {
+        "quefaire_get_categories": {
+            "description": "Retourne la liste des rubriques (brocante, concert, expositions, etc...)",
+            "httpMethod": "GET",
+            "parameters": {},
+            "uri": "1.2/QueFaire/get_categories"
+        },
+        "quefaire_get_activities": {
+            "description": "Récupère les dernières activites et événements par catégories.",
+            "httpMethod": "GET",
+            "parameters": {
+                "cid": {
+                    "description": "(String), un ou des idenfiants de catégorie (séparés par des virigule, ie. 20,22)",
+                    "location": "query",
+                    "require": true
+                },
+                "created": {
+                    "description": "(Timestamp), date d'ajout de l'événement / activité. Peut prendre les valeurs \"0\" (récupère l'ensemble des donnnées dans la limite \"limit\") ou un timestamp",
+                    "location": "query"
+                },
+                "offset": {
+                    "description": "(Int), numéro de la ligne à partir duquel récupérer les données.",
+                    "location": "query"
+                },
+                "limit": {
+                    "description": "(Int), le nombre d'élément que l'on veut récupérer",
+                    "location": "query"
+                }
+            },
+            "uri": "1.2/QueFaire/get_activities"
+        },
+        "quefaire_search_activities": {
+            "description": "Recherche les activites et événements en cours ou à venir par mot clef.",
+            "httpMethod": "GET",
+            "parameters": {
+                "cid": {
+                    "description": "(String), un ou des idenfiants de catégorie (séparés par des virigule, ie. 20,22)",
+                    "location": "query"
+                },
+                "keyword": {
+                    "description": "(String), un mot clef",
+                    "location": "query"
+                },
+                "offset": {
+                    "description": "(Int), numéro de la ligne à partir duquel récupérer les données.",
+                    "location": "query"
+                },
+                "limit": {
+                    "description": "(Int), le nombre d'élément que l'on veut récupérer",
+                    "location": "query"
+                }
+            },
+            "uri": "1.2/QueFaire/search_activities"
+        },
+        "quefaire_get_geo_activities": {
+            "description": "Recherche les activites et événements en fonction d'un point (lat,lon), d'un rayon et d'une liste de catégories.",
+            "httpMethod": "GET",
+            "parameters": {
+                "cid": {
+                    "description": "(String), un ou des idenfiants de catégorie (séparés par des virigule, ie. 20,22)",
+                    "location": "query"
+                },
+                "created": {
+                    "description": "(Timestamp), date d'ajout de l'événement / activité. Peut prendre les valeurs \"0\" (récupère l'ensemble des donnnées dans la limite \"limit\") ou un timestamp",
+                    "location": "query"
+                },
+                "lat": {
+                    "description": "(Double), latitude d'un point (WGS 84 - ex. 48.856332)",
+                    "location": "query"
+                },
+                "lon": {
+                    "description": "(Double), longitude d'un point (WGS 84 - ex. 2.353453)",
+                    "location": "query"
+                },
+                "radius": {
+                    "description": "(Int), rayon de recherche maximum à partir du point spécifié par lat et lon, exprimé en mètre.",
+                    "location": "query"
+                },
+                "offset": {
+                    "description": "(Int), numéro de la ligne à partir duquel récupérer les données.",
+                    "location": "query"
+                },
+                "limit": {
+                    "description": "(Int), le nombre d'élément que l'on veut récupérer",
+                    "location": "query"
+                }
+            },
+            "uri": "1.2/QueFaire/get_geo_activities"
+        },
+        "quefaire_get_activity": {
+            "description": "Récupère toutes les informations sur un événement donné.",
+            "httpMethod": "GET",
+            "parameters": {
+                "id": {
+                    "description": "(Int), l'identifiant de l'évenement",
+                    "location": "query"
+                }
+            },
+            "uri": "1.0/QueFaire/get_activity"
+        },
+        "equipements_get_categories": {
+            "description": "Retourne la liste des catégories (piscines, parcs et jardins, bibliothèques, etc...)",
+            "httpMethod": "GET",
+            "parameters": {},
+            "uri": "1.0/Equipements/get_categories"
+        },
+        "equipements_get_equipements": {
+            "description": "Recupère l'ensemble des équipements d'une catégorie donnée.",
+            "httpMethod": "GET",
+            "parameters": {
+                "cid": {
+                    "description": "(String), un ou des idenfiants de catégorie (séparés par des virigule, ie. 27,29)",
+                    "location": "query"
+                },
+                "offset": {
+                    "description": "(Int), numéro de la ligne à partir duquel récupérer les données.",
+                    "location": "query"
+                },
+                "limit": {
+                    "description": "(Int), le nombre d'élément que l'on veut récupérer",
+                    "location": "query"
+                }
+            },
+            "uri": "1.0/Equipements/get_equipements"
+        },
+        "equipements_get_equipement": {
+            "description": "Recupère les informations sur un équipements donnée",
+            "httpMethod": "GET",
+            "parameters": {
+                "id": {
+                    "description": "(Int), l'identifiant de l'équipement",
+                    "location": "query",
+                    "require": true
+                }
+            },
+            "uri": "1.0/Equipements/get_equipement"
+        },
+        "equipements_get_crowd_level": {
+            "description": "Recupère les informations sur un équipements donnée",
+            "httpMethod": "GET",
+            "parameters": {
+                "id": {
+                    "description": "(Int), l'identifiant de l'équipement",
+                    "location": "query"
+                }
+            },
+            "uri": "1.0/Equipements/get_crowd_level"
+        }
+    }
+}

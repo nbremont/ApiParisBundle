@@ -7,6 +7,10 @@
     <!--
     <parameters>
         <parameter key="jean_de_jean_api_paris.example.class">JeanDeJean\Bundle\ApiParisBundle\Example</parameter>
+        <parameter key="cache.class">Doctrine\Common\Cache\ApcCache</parameter>
+        <parameter key="jean_de_jean_api_paris.api.client.class">JeanDeJean\Component\ApiParis\ApiClient</parameter>
+        <parameter key="jean_de_jean_api_paris.api.equipements.class">JeanDeJean\Component\ApiParis\ApiEquipements</parameter>
+        <parameter key="jean_de_jean_api_paris.api.quefaire.class">JeanDeJean\Component\ApiParis\ApiQueFaire</parameter>
     </parameters>
 
     <services>
@@ -18,26 +22,36 @@
     </services>
     -->
     <parameters>
-        <parameter key="cache.class">Doctrine\Common\Cache\ApcCache</parameter>
-        <parameter key="jean_de_jean_api_paris.uri">https://api.paris.fr:3000/data</parameter>
-        <parameter key="jean_de_jean_api_paris.api.client.class">JeanDeJean\Component\ApiParis\ApiClient</parameter>
-        <parameter key="jean_de_jean_api_paris.api.equipements.class">JeanDeJean\Component\ApiParis\ApiEquipements</parameter>
-        <parameter key="jean_de_jean_api_paris.api.quefaire.class">JeanDeJean\Component\ApiParis\ApiQueFaire</parameter>
+        <parameter key="jean_de_jean_api_paris.api.client.class">Guzzle\Service\Client</parameter>
+        <parameter key="jean_de_jean_api_paris.client.default_options" type="collection">
+            <parameter key="token">%jean_de_jean_api_paris.token%</parameter>
+        </parameter>
+        <parameter key="guzzle.service_description.class">Guzzle\Service\Description\ServiceDescription</parameter>
+        <parameter key="jean_de_jean_api_paris.service_declaration_path" />
     </parameters>
     
     <services>
-        <service id="cache" class="%cache.class%"></service>
-        <service id="jean_de_jean_api_paris.api.client" class="%jean_de_jean_api_paris.api.client.class%">
-            <argument>%jean_de_jean_api_paris.uri%</argument>
-            <argument>%jean_de_jean_api_paris.token%</argument>
-            <argument type="service" id="logger" />
-            <argument>true</argument>
+        <service id="guzzle.service_description" 
+                 class="%guzzle.service_description.class%"
+                 factory-class="%guzzle.service_description.class%"
+                 factory-method="factory">
+            <argument>%jean_de_jean_api_paris.service_declaration_path%</argument>
         </service>
-        <service id="jean_de_jean_api_paris.api.quefaire" class="%jean_de_jean_api_paris.api.quefaire.class%">
-            <argument type="service" id="jean_de_jean_api_paris.api.client" />
-        </service>
-        <service id="jean_de_jean_api_paris.api.equipements" class="%jean_de_jean_api_paris.api.equipements.class%">
-            <argument type="service" id="jean_de_jean_api_paris.api.client" />
+        <service id="jean_de_jean_api_paris.api.client" 
+                 class="%jean_de_jean_api_paris.api.client.class%"
+                 factory-class="%jean_de_jean_api_paris.api.client.class%"
+                 factory-method="factory">
+            <call method="setDescription">
+                <argument type="service" id="guzzle.service_description"></argument>
+            </call>
+            <call method="setDefaultOption">
+                <argument>query</argument>
+                <argument>%jean_de_jean_api_paris.client.default_options%</argument>
+            </call>
+            <call method="setDefaultOption">
+                <argument>verify</argument>
+                <argument>false</argument>
+            </call>
         </service>
     </services>
 </container>

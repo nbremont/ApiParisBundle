@@ -15,15 +15,13 @@ class DefaultController extends ContainerAware
    */
   public function indexAction()
   {
-    $apiQuefaire = $this->container->get('jean_de_jean_api_paris.api.quefaire');
-    $qf_categories = $apiQuefaire->getCategories();
-
-    $apiEquipements = $this->container->get('jean_de_jean_api_paris.api.equipements');
-    $eq_categories = $apiEquipements->getCategories();
+    $api = $this->container->get('jean_de_jean_api_paris.api.client');
+    $eq_categories = $api->getCommand('equipements_get_categories')->execute();
+    $qf_categories = $api->getCommand('quefaire_get_categories')->execute();
 
     return array(
-        "quefaire_categories" => json_decode($qf_categories),
-        "equipements_categories" => json_decode($eq_categories),
+        "quefaire_categories" => $qf_categories,
+        "equipements_categories" => $eq_categories,
     );
   }
 
@@ -33,10 +31,9 @@ class DefaultController extends ContainerAware
    */
   public function equipementAction($id)
   {
-    $apiEquipements = $this->container->get('jean_de_jean_api_paris.api.equipements');
-    $eq = $apiEquipements->getEquipement(array("id" => $id));
-    
-    return array("equipement" => json_decode($eq));
+    $api = $this->container->get('jean_de_jean_api_paris.api.client');
+    $command = $api->getCommand('equipements_get_equipement', array("id" => $id));
+    return array("equipement" => $command->execute());
   }
 
   /**
@@ -45,10 +42,14 @@ class DefaultController extends ContainerAware
    */
   public function quefaireactivityAction($id)
   {
-    $apiQueFaire = $this->container->get('jean_de_jean_api_paris.api.quefaire');
-    $qf = $apiQueFaire->getActivities(array("cid" => $id, "created" => 0, "offset" => 100, "limit" => 100));
-
-    return array("activity" => json_decode($qf));
+    $api = $this->container->get('jean_de_jean_api_paris.api.client');
+    $command = $api->getCommand('quefaire_get_activities', array(
+        'cid' => $id,
+        'created' => 0,
+        'offset' => 0,
+        'limit' => 100
+    ));
+    return array("activity" => $command->execute());
   }
 
 }

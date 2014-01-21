@@ -32,6 +32,7 @@ class JeanDeJeanApiParisExtension extends Extension
   protected function initConfiguration(array $config, ContainerBuilder $container)
   {
     $container->setParameter('jean_de_jean_api_paris.token', $config['token']);
+    $container->setParameter('jean_de_jean_api_paris.service_declaration_path', __DIR__ . '/../Resources/config/service.json');
   }
 
 }
