@@ -68,8 +68,14 @@ into controller:
 public function indexAction()
 {
     // ...
-    $apiEquipements = $this->get('jean_de_jean_api_paris.api.equipements');
-    $eq_categories = $apiEquipements->getCategories();
+    $api = $this->container->get('jean_de_jean_api_paris.api.client');
+    $eq_categories = $api->getCommand('equipements_get_categories')->execute();
+    $qf_categories = $api->getCommand('quefaire_get_categories')->execute();
+
+    return array(
+        "quefaire_categories" => $qf_categories,
+        "equipements_categories" => $eq_categories,
+    );
 }
 ```
 
