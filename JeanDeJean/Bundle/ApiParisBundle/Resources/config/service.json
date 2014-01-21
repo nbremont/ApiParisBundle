@@ -1,8 +1,8 @@
 {
     "name": "ApiParis",
-    "apiVersion": "string|number",
+    "apiVersion": "v1.0",
     "baseUrl": "https://api.paris.fr:3000/data",
-    "description": "description",
+    "description": "Accédez aux données de la Mairie de Paris en temps réel.",
     "operations": {
         "quefaire_get_categories": {
             "description": "Retourne la liste des rubriques (brocante, concert, expositions, etc...)",
