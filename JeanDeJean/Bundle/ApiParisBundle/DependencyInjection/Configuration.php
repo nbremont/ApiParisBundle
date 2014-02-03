@@ -27,8 +27,12 @@ class Configuration implements ConfigurationInterface
     
     $rootNode
             ->children()
-              ->scalarNode('token')->isRequired()->cannotBeEmpty()->end()
-              ->scalarNode('service_declaration_path')->end()
+              ->scalarNode('token')
+                ->isRequired()
+                ->cannotBeEmpty()
+              ->end()
+              ->scalarNode('service_declaration_path')
+                ->defaultValue(__DIR__ . '/../Resources/config/api.json')->end()
             ->end();
 
     return $treeBuilder;
