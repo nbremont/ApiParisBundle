@@ -21,15 +21,21 @@
                 },
                 "created": {
                     "description": "(Timestamp), date d'ajout de l'événement / activité. Peut prendre les valeurs \"0\" (récupère l'ensemble des donnnées dans la limite \"limit\") ou un timestamp",
-                    "location": "query"
+                    "location": "query",
+                    "require": true,
+                    "default": 0
                 },
                 "offset": {
                     "description": "(Int), numéro de la ligne à partir duquel récupérer les données.",
-                    "location": "query"
+                    "location": "query",
+                    "require": true,
+                    "default": 0
                 },
                 "limit": {
                     "description": "(Int), le nombre d'élément que l'on veut récupérer",
-                    "location": "query"
+                    "location": "query",
+                    "require": true,
+                    "default": 100
                 }
             },
             "uri": "1.2/QueFaire/get_activities"
@@ -40,19 +46,25 @@
             "parameters": {
                 "cid": {
                     "description": "(String), un ou des idenfiants de catégorie (séparés par des virigule, ie. 20,22)",
-                    "location": "query"
+                    "location": "query",
+                    "require": true
                 },
                 "keyword": {
                     "description": "(String), un mot clef",
-                    "location": "query"
+                    "location": "query",
+                    "require": true
                 },
                 "offset": {
                     "description": "(Int), numéro de la ligne à partir duquel récupérer les données.",
-                    "location": "query"
+                    "location": "query",
+                    "require": true,
+                    "default": 0
                 },
                 "limit": {
                     "description": "(Int), le nombre d'élément que l'on veut récupérer",
-                    "location": "query"
+                    "location": "query",
+                    "require": true,
+                    "default": 100
                 }
             },
             "uri": "1.2/QueFaire/search_activities"
@@ -63,31 +75,42 @@
             "parameters": {
                 "cid": {
                     "description": "(String), un ou des idenfiants de catégorie (séparés par des virigule, ie. 20,22)",
-                    "location": "query"
+                    "location": "query",
+                    "require": true
                 },
                 "created": {
                     "description": "(Timestamp), date d'ajout de l'événement / activité. Peut prendre les valeurs \"0\" (récupère l'ensemble des donnnées dans la limite \"limit\") ou un timestamp",
-                    "location": "query"
+                    "location": "query",
+                    "require": true,
+                    "default": 0
+                    
                 },
                 "lat": {
                     "description": "(Double), latitude d'un point (WGS 84 - ex. 48.856332)",
-                    "location": "query"
+                    "location": "query",
+                    "require": true
                 },
                 "lon": {
                     "description": "(Double), longitude d'un point (WGS 84 - ex. 2.353453)",
-                    "location": "query"
+                    "location": "query",
+                    "require": true
                 },
                 "radius": {
                     "description": "(Int), rayon de recherche maximum à partir du point spécifié par lat et lon, exprimé en mètre.",
-                    "location": "query"
+                    "location": "query",
+                    "require": true
                 },
                 "offset": {
                     "description": "(Int), numéro de la ligne à partir duquel récupérer les données.",
-                    "location": "query"
+                    "location": "query",
+                    "require": true,
+                    "default": 0
                 },
                 "limit": {
                     "description": "(Int), le nombre d'élément que l'on veut récupérer",
-                    "location": "query"
+                    "location": "query",
+                    "require": true,
+                    "default": 100
                 }
             },
             "uri": "1.2/QueFaire/get_geo_activities"
@@ -98,7 +121,8 @@
             "parameters": {
                 "id": {
                     "description": "(Int), l'identifiant de l'évenement",
-                    "location": "query"
+                    "location": "query",
+                    "require": true
                 }
             },
             "uri": "1.0/QueFaire/get_activity"
@@ -115,15 +139,20 @@
             "parameters": {
                 "cid": {
                     "description": "(String), un ou des idenfiants de catégorie (séparés par des virigule, ie. 27,29)",
-                    "location": "query"
+                    "location": "query",
+                    "require": true
                 },
                 "offset": {
                     "description": "(Int), numéro de la ligne à partir duquel récupérer les données.",
-                    "location": "query"
+                    "location": "query",
+                    "require": true,
+                    "default": 0
                 },
                 "limit": {
                     "description": "(Int), le nombre d'élément que l'on veut récupérer",
-                    "location": "query"
+                    "location": "query",
+                    "require": true,
+                    "default": 100
                 }
             },
             "uri": "1.0/Equipements/get_equipements"
@@ -146,7 +175,8 @@
             "parameters": {
                 "id": {
                     "description": "(Int), l'identifiant de l'équipement",
-                    "location": "query"
+                    "location": "query",
+                    "require": true
                 }
             },
             "uri": "1.0/Equipements/get_crowd_level"
