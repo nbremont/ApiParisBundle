@@ -31,8 +31,8 @@ class ApiParisExtension extends Extension
 
   protected function initConfiguration(array $config, ContainerBuilder $container)
   {
-    $container->setParameter('jean_de_jean_api_paris.token', $config['token']);
-    $container->setParameter('jean_de_jean_api_paris.service_declaration_path', $config['service_declaration_path']);
+    $container->setParameter('api_paris.token', $config['token']);
+    $container->setParameter('api_paris.service_declaration_path', $config['service_declaration_path']);
   }
 
 }

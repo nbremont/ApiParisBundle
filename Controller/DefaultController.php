@@ -15,7 +15,7 @@ class DefaultController extends ContainerAware
    */
   public function indexAction()
   {
-    $api = $this->container->get('jean_de_jean_api_paris.api.client');
+    $api = $this->container->get('api_paris.api.client');
     $eq_categories = $api->getCommand('equipements_get_categories')->execute();
     $qf_categories = $api->getCommand('quefaire_get_categories')->execute();
 
@@ -31,7 +31,7 @@ class DefaultController extends ContainerAware
    */
   public function equipementAction($id)
   {
-    $api = $this->container->get('jean_de_jean_api_paris.api.client');
+    $api = $this->container->get('api_paris.api.client');
     $command = $api->getCommand('equipements_get_equipement', array("id" => $id));
     return array("equipement" => $command->execute());
   }
@@ -42,7 +42,7 @@ class DefaultController extends ContainerAware
    */
   public function quefaireactivityAction($id)
   {
-    $api = $this->container->get('jean_de_jean_api_paris.api.client');
+    $api = $this->container->get('api_paris.api.client');
     $command = $api->getCommand('quefaire_get_activities', array(
         'cid' => $id,
         'created' => 0,

@@ -52,7 +52,7 @@ jean_de_jean_api_paris:
 ```yml
 # routing.yml
 _apiparis_demo:
-    resource: "@JeanDeJeanApiParisBundle/Controller/"
+    resource: "@ApiParisBundle/Controller/"
     type:     annotation
     prefix:   /_apiparis
 

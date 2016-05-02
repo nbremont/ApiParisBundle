@@ -3,31 +3,31 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="jean_de_jean_api_paris.api.client.class">Guzzle\Service\Client</parameter>
-        <parameter key="jean_de_jean_api_paris.client.default_options" type="collection">
-            <parameter key="token">%jean_de_jean_api_paris.token%</parameter>
+        <parameter key="api_paris.api.client.class">Guzzle\Service\Client</parameter>
+        <parameter key="api_paris.client.default_options" type="collection">
+            <parameter key="token">%api_paris.token%</parameter>
         </parameter>
         <parameter key="guzzle.service_description.class">Guzzle\Service\Description\ServiceDescription</parameter>
-        <parameter key="jean_de_jean_api_paris.service_declaration_path" />
+        <parameter key="api_paris.service_declaration_path" />
     </parameters>
-    
+
     <services>
-        <service id="guzzle.service_description" 
+        <service id="guzzle.service_description"
                  class="%guzzle.service_description.class%"
                  factory-class="%guzzle.service_description.class%"
                  factory-method="factory">
-            <argument>%jean_de_jean_api_paris.service_declaration_path%</argument>
+            <argument>%api_paris.service_declaration_path%</argument>
         </service>
-        <service id="jean_de_jean_api_paris.api.client" 
-                 class="%jean_de_jean_api_paris.api.client.class%"
-                 factory-class="%jean_de_jean_api_paris.api.client.class%"
+        <service id="api_paris.api.client"
+                 class="%api_paris.api.client.class%"
+                 factory-class="%api_paris.api.client.class%"
                  factory-method="factory">
             <call method="setDescription">
                 <argument type="service" id="guzzle.service_description"></argument>
             </call>
             <call method="setDefaultOption">
                 <argument>query</argument>
-                <argument>%jean_de_jean_api_paris.client.default_options%</argument>
+                <argument>%api_paris.client.default_options%</argument>
             </call>
             <call method="setDefaultOption">
                 <argument>verify</argument>
