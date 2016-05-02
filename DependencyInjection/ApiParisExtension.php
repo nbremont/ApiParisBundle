@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\Loader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class JeanDeJeanApiParisExtension extends Extension
+class ApiParisExtension extends Extension
 {
 
   /**
@@ -25,7 +25,7 @@ class JeanDeJeanApiParisExtension extends Extension
 
     $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
     $loader->load('services.xml');
-    
+
     $this->initConfiguration($config, $container);
   }
 
