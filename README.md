@@ -43,7 +43,7 @@ public function registerBundles()
 ### Config
 ```yml
 # config.yml
-jean_de_jean_api_paris:
+api_paris:
 	token: %apiparis_token%
 
 ```
@@ -68,7 +68,7 @@ into controller:
 public function indexAction()
 {
     // ...
-    $api = $this->container->get('jean_de_jean_api_paris.api.client');
+    $api = $this->container->get('api_paris.api.client');
     $eq_categories = $api->getCommand('equipements_get_categories')->execute();
     $qf_categories = $api->getCommand('quefaire_get_categories')->execute();
 
