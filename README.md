@@ -31,7 +31,7 @@ public function registerBundles()
     $bundles = array(
         // ...
 
-        new JeanDeJean\Bundle\ApiParisBundle\JeanDeJeanApiParisBundle(),
+        new JeanDeJean\Bundle\ApiParisBundle\ApiParisBundle(),
     );
 }
 ```
