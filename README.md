@@ -246,3 +246,7 @@ Console: https://api.paris.fr:3000/data/1.0/Equipements/get_crowd_level/?token=&
 
 More information: https://api.paris.fr/
 -
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/nbremont/apiparisbundle/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
